@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Feliz Día de la Novia ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<style>*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ff9ecf,#ffd6e8,#fff0f5);
+    overflow-x:hidden;
+    color:#fff;
+}
+
+#loader{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    background:linear-gradient(135deg,#ff4d88,#ff7eb3,#ffc2d1);
+}
+
+#loader h1{
+    font-size:3rem;
+    font-family:'Dancing Script',cursive;
+}
+
+#loader p{
+    margin:20px;
+    font-size:1.2rem;
+}
+
+#entrar{
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+    background:white;
+    color:#ff3d7f;
+    font-size:18px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+#entrar:hover{
+    transform:scale(1.1);
+}
+
+header{
+    text-align:center;
+    padding:50px 20px;
+}
+
+header h1{
+    font-size:3rem;
+    font-family:'Dancing Script',cursive;
+}
+
+.sub{
+    margin-top:15px;
+    font-size:1.2rem;
+}
+
+.principal{
+    display:flex;
+    justify-content:center;
+    padding:40px;
+}
+
+.carta{
+    width:90%;
+    max-width:800px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(12px);
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 0 30px rgba(255,255,255,.4);
+}
+
+.carta h2{
+    text-align:center;
+    margin-bottom:20px;
+    font-family:'Dancing Script',cursive;
+    font-size:2.5rem;
+}
+
+.carta p{
+    margin:18px 0;
+    line-height:1.8;
+}
+
+.galeria{
+    text-align:center;
+    padding:50px 20px;
+}
+
+.imagenes{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+
+.imagenes img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:.5s;
+    box-shadow:0 0 20px rgba(255,255,255,.4);
+}
+
+.imagenes img:hover{
+    transform:scale(1.08);
+}
+
+.mensajes{
+    padding:50px 20px;
+    text-align:center;
+}
+
+.frases{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.frase{
+    background:rgba(255,255,255,.18);
+    padding:15px 20px;
+    border-radius:30px;
+    animation:flotar 5s infinite ease-in-out;
+}
+
+@keyframes flotar{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+.cartitas{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.cartas{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:35px;
+}
+
+.card{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(12px);
+    padding:25px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 0 15px rgba(255,255,255,.25);
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    background:rgba(255,255,255,.25);
+}
+
+.card h3{
+    margin-bottom:15px;
+    font-size:1.4rem;
+}
+
+.card p{
+    line-height:1.7;
+}
+
+.sorpresa{
+    text-align:center;
+    padding:70px 20px;
+}
+
+#amor{
+    padding:18px 40px;
+    border:none;
+    border-radius:50px;
+    background:#fff;
+    color:#ff3d7f;
+    font-size:20px;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 0 20px rgba(255,255,255,.4);
+}
+
+#amor:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 35px rgba(255,255,255,.8);
+}
+
+#final{
+    text-align:center;
+    padding:80px 25px;
+    animation:aparecer 1s ease;
+}
+
+#final h1{
+    font-family:'Dancing Script',cursive;
+    font-size:3.8rem;
+    margin-bottom:20px;
+}
+
+#final h2{
+    margin-bottom:20px;
+}
+
+#final p{
+    max-width:700px;
+    margin:15px auto;
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+.oculto{
+    display:none;
+}
+
+#corazones{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.corazon{
+    position:absolute;
+    color:#fff;
+    font-size:22px;
+    animation:subir linear forwards;
+    opacity:.8;
+}
+
+@keyframes subir{
+    from{
+        transform:translateY(100vh) scale(.5);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120px) scale(1.3);
+        opacity:0;
+    }
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@media(max-width:768px){
+
+header h1{
+    font-size:2.3rem;
+}
+
+.carta{
+    padding:20px;
+}
+
+#final h1{
+    font-size:2.6rem;
+}
+
+.imagenes img{
+    height:220px;
+}
+
+.frase{
+    font-size:.9rem;
+}
+
+}
+</style>
+<body>
+
+<div id="loader">
+
+<h1>❤️ Para el amor de mi vida ❤️</h1>
+
+<p>Hay un pequeño regalo esperándote...</p>
+
+<button id="entrar">Abrir mi corazón 💖</button>
+
+</div>
+
+<div id="contenido" style="display:none;">
+
+<div id="corazones"></div>
+
+<header>
+
+<h1>Feliz Día de la Novia ❤️</h1>
+
+<p class="sub">
+
+No existe distancia capaz de disminuir el amor que siento por ti.
+
+</p>
+
+</header>
+
+<section class="principal">
+
+<div class="carta">
+
+<h2>Mi amor...</h2>
+
+<p>
+
+Si hoy pudiera darte un regalo perfecto, te daría todos los abrazos que la distancia me impide darte.
+
+</p>
+
+<p>
+
+Cada amanecer me recuerda que existe alguien muy especial esperando por mí.
+
+</p>
+
+<p>
+
+No importa cuántos kilómetros nos separen...
+
+Mi corazón siempre estará contigo.
+
+</p>
+
+<p>
+
+Prometo seguir luchando por nosotros.
+
+Prometo nunca rendirme.
+
+Prometo amarte incluso en los días difíciles.
+
+</p>
+
+<p>
+
+Porque tú eres mi lugar favorito.
+
+Mi paz.
+
+Mi felicidad.
+
+Mi hogar.
+
+</p>
+
+<p>
+
+Te amo muchísimo y jamás dejaré de elegirte.
+
+❤️
+
+</p>
+
+</div>
+
+</section>
+
+<section class="galeria">
+
+<h2>❤️ La mujer que cambió mi vida para siempre ❤️</h2>
+
+<p>
+
+"Cada fotografía cuenta una historia, pero todas tienen algo en común: en cada una de ellas está la persona que le dio un nuevo sentido a mi vida."
+
+</p>
+
+<div class="imagenes">
+
+<img src="fotitosdemiamorcito/IMG-20250306-WA0023.jpg">
+<img src="fotitosdemiamorcito/IMG-20250502-WA0028.jpg">
+<img src="fotitosdemiamorcito/IMG-20250502-WA0030.jpg">
+<img src="fotitosdemiamorcito/IMG-20250502-WA0032.jpg">
+<img src="fotitosdemiamorcito/IMG-20250502-WA0035.jpg">
+<img src="fotitosdemiamorcito/IMG-20250502-WA0044.jpg">
+<img src="fotitosdemiamorcito/IMG-20250502-WA0045.jpg">
+<img src="fotitosdemiamorcito/IMG-20250502-WA0049.jpg">
+<img src="fotitosdemiamorcito/IMG-20250502-WA0051.jpg">
+<img src="fotitosdemiamorcito/IMG-20250502-WA0057.jpg">
+<img src="fotitosdemiamorcito/IMG-20250901-WA0015.jpg">
+<img src="fotitosdemiamorcito/IMG-20260601-WA0113.jpg">
+<img src="fotitosdemiamorcito/amor~2.jpg">
+</div>
+</section>
+<section class="mensajes">
+    <h2>Lo que quiero decirte ❤️</h2>
+    <div class="frases">
+        <div class="frase">❤️ No importa la distancia, siempre elegiré amarte.</div>
+        <div class="frase">🌹 Tú eres la mejor parte de todos mis días.</div>
+        <div class="frase">💖 Mi amor por ti es infinito.</div>
+        <div class="frase">✨ Gracias por aparecer en mi vida.</div>
+        <div class="frase">🥺 Extraño cada abrazo, cada mirada y cada momento contigo.</div>
+        <div class="frase">💕 Aunque hoy no pueda tomarte de la mano, mi corazón nunca ha soltado el tuyo.</div>
+        <div class="frase">❤️ Prometo seguir luchando por nosotros.</div>
+        <div class="frase">🌎 No importa en donde te encuentres, siempre vivirás en mi corazón.</div>
+        <div class="frase">💞 Tú eres mi presente y también mi futuro.</div>
+        <div class="frase">❤️ Siempre tú.</div>
+    </div>
+</section>
+<section class="cartitas">
+
+<h2>Haz clic en cada carta 💌</h2>
+
+<div class="cartas">
+
+<div class="card">
+
+<h3>💖 Carta 1</h3>
+
+<p>
+
+Nunca dejaré que la distancia haga que deje de amarte.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🌹 Carta 2</h3>
+
+<p>
+
+Cada día sueño con volver a abrazarte y decirte lo mucho que significas para mí.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>❤️ Carta 3</h3>
+
+<p>
+
+Gracias por existir, por hacerme feliz y por enseñarme lo bonito que es amar.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>✨ Carta 4</h3>
+
+<p>
+
+No importa cuántos problemas lleguen.
+
+Siempre los enfrentaremos juntos.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🥰 Carta 5</h3>
+
+<p>
+
+Eres la persona con la que quiero compartir todos mis días.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>💍 Carta 6</h3>
+
+<p>
+
+Mi mayor deseo es seguir construyendo un futuro contigo.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BOTÓN SORPRESA -->
+
+<section class="sorpresa">
+
+<h2>Antes de terminar...</h2>
+
+<button id="amor">Haz clic aquí ❤️</button>
+
+</section>
+
+<!-- MENSAJE FINAL -->
+
+<div id="final" class="oculto">
+
+<h1>❤️ Feliz Día de la Novia ❤️</h1>
+
+<h2>Eres el amor de mi vida.</h2>
+
+<p>
+
+Gracias por estar conmigo.
+
+Gracias por creer en nosotros.
+
+Gracias por hacerme tan feliz.
+
+</p>
+
+<p>
+
+Prometo seguir amándote todos los días de mi vida.
+
+No importa la distancia.
+
+No importa el tiempo.
+
+Siempre serás tú.
+
+❤️
+
+</p>
+
+<h1>Te Amo Muchísimo Mi Amor ❤️</h1>
+
+</div>
+
+<script>
+  // Botón para abrir la página
+const entrar = document.getElementById("entrar");
+const loader = document.getElementById("loader");
+const contenido = document.getElementById("contenido");
+
+entrar.addEventListener("click", () => {
+    loader.style.display = "none";
+    contenido.style.display = "block";
+});
+
+// Botón sorpresa
+const botonAmor = document.getElementById("amor");
+const final = document.getElementById("final");
+
+botonAmor.addEventListener("click", () => {
+    final.classList.remove("oculto");
+
+    final.scrollIntoView({
+        behavior: "smooth"
+    });
+});
+
+// Corazones flotando
+const contenedor = document.getElementById("corazones");
+
+function crearCorazon(){
+
+    const corazon = document.createElement("div");
+
+    corazon.classList.add("corazon");
+
+    corazon.innerHTML = "❤";
+
+    corazon.style.left = Math.random()*100 + "%";
+
+    corazon.style.animationDuration = (4 + Math.random()*4)+"s";
+
+    corazon.style.fontSize = (15 + Math.random()*30)+"px";
+
+    contenedor.appendChild(corazon);
+
+    setTimeout(()=>{
+        corazon.remove();
+    },8000);
+
+}
+
+setInterval(crearCorazon,300);
+
+// Animación de las cartas
+const cartas = document.querySelectorAll(".card");
+
+cartas.forEach(carta=>{
+
+    carta.addEventListener("click",()=>{
+
+        carta.style.transform="scale(1.08)";
+        carta.style.background="rgba(255,255,255,.30)";
+
+        setTimeout(()=>{
+            carta.style.transform="";
+            carta.style.background="";
+        },400);
+
+    });
+
+});
+
+// Frases que aparecen aleatoriamente
+const frases = [
+"❤️ Siempre serás el amor de mi vida.",
+"🌹 No importa la distancia.",
+"💖 Gracias por existir.",
+"🥺 Cada día te extraño más.",
+"💕 Tú eres mi felicidad.",
+"✨ Nunca dejaré de amarte.",
+"❤️ Eres mi lugar seguro.",
+"🌎 Siempre volvería a elegirte.",
+"💞 Nuestro amor puede con todo.",
+"💘 Feliz Día de la Novia."
+];
+
+function mensajeFlotante(){
+
+    const mensaje=document.createElement("div");
+
+    mensaje.innerText=frases[Math.floor(Math.random()*frases.length)];
+
+    mensaje.style.position="fixed";
+    mensaje.style.left=Math.random()*80+"%";
+    mensaje.style.top=Math.random()*80+"%";
+    mensaje.style.padding="12px 18px";
+    mensaje.style.background="rgba(255,255,255,.20)";
+    mensaje.style.backdropFilter="blur(8px)";
+    mensaje.style.borderRadius="20px";
+    mensaje.style.color="white";
+    mensaje.style.fontWeight="bold";
+    mensaje.style.zIndex="999";
+    mensaje.style.animation="aparecer 1s";
+
+    document.body.appendChild(mensaje);
+
+    setTimeout(()=>{
+        mensaje.remove();
+    },4000);
+
+}
+
+setInterval(mensajeFlotante,5000);
+  </script>
+
+</div>
+
+</body>
+
+</html>
